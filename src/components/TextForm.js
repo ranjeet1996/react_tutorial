@@ -37,14 +37,14 @@ export default function TextForm(props) {
       <div className="mb-3">
         <textarea className="form-control" placeholder="Enter text here" value={text} onChange={handleOnChange} style ={{background: props.mode==='dark'?'grey':'white',color: props.mode==='dark'?'white':'#090b4d'}} id="myBox" rows="8"></textarea>
       </div>
-      <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
-      <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to LowerCase</button>
-      <button className="btn btn-primary mx-1" onClick={handleResetTextView}>Reset</button>
-      <button className="btn btn-primary mx-1" onClick={handleSpeak}>Speak</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>Convert to LowerCase</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleResetTextView}>Reset</button>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleSpeak}>Speak</button>
     </div>
     <div className="container my-3" style ={{color: props.mode==='dark'?'white':'#090b4d'}}>
         <h2>Your text summary</h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
         <p> {0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something to preview it here"}</p>
